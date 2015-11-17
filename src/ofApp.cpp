@@ -4,8 +4,8 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    tdf.loadImage("images/tdf_1972_poster.jpg");
-    tdf2.loadImage("images/tdf_1972_poster2.jpg");
+    tdf.loadImage("images/img.jpg");
+    tdf2.loadImage("images/img2.jpg");
     resetImage();
 }
 
@@ -29,26 +29,12 @@ void ofApp::draw(){
 
 void ofApp::glitchImage() {
     
-    ofFile file;
-    
-    file.open(ofToDataPath("images/tdf_1972_poster.jpg"), ofFile::ReadWrite, false);
-    ofBuffer buff = file.readToBuffer();
-    
-    ofLogNotice(buff.getText());
-    
-    //string imgContent = buff.getText();
-    //imgContent.erase (imgContent.begin()+imgContent.length()/2, imgContent.end() - 1000);
-    
-    ofBuffer * dataBuffer = new ofBuffer(file.readToBuffer().getFirstLine());
-    
-    ofBufferToFile("images/tdf_1972_poster2.jpg", *dataBuffer);
-    
     
     ifstream fin;
-    fin.open( ofToDataPath("images/tdf_1972_poster.jpg").c_str() );
+    fin.open( ofToDataPath("images/img.jpg").c_str() );
     
     ofstream myfile;
-    myfile.open (ofToDataPath("images/tdf_1972_poster2.jpg").c_str() );
+    myfile.open (ofToDataPath("images/img2.jpg").c_str() );
     
     //vector<string> data; //declare a vector of strings to store data
     
@@ -69,7 +55,7 @@ void ofApp::glitchImage() {
     myfile.close();
     fin.close();
     
-    tdf2.loadImage("images/tdf_1972_poster2.jpg");
+    tdf2.loadImage("images/img2.jpg");
 }
 
 void ofApp::resetImage() {
